@@ -11,4 +11,6 @@ export const CONSTANTS = {
     GetBookLocation:"GetBookLocation",
     GetBookContent:"GetBookContent",
     ProcessBook:"ProcessBook",
+    SummaryByFrequency:"SummaryByFrequency",
+    SummaryByRank:"SummaryByRank"
 }
