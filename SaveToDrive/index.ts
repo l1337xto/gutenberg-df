@@ -10,7 +10,8 @@ const bucket = gc.bucket('gutenberg-analysis-uga');
 
 const activityFunction: AzureFunction = async function (context: Context): Promise<string> {
     context.log(context.bindingData?.instanceId,":::SaveToDrive: Initializing processing.")
-    const fileName:string = context.bindingData.bookPath.split("/").pop();
+    const bookPath:string = context.bindingData.bookPath;
+    const fileName:string = bookPath.split("/").pop();
     const data = context.bindings.name.bookSummary.toString();
     const file = bucket.file(fileName);
     const passthroughStream = new stream.PassThrough();
