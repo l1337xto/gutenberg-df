@@ -11,14 +11,19 @@
   },
   "dependencies": {
     "@azure/ai-text-analytics": "^5.2.0-beta.1",
+    "@google-cloud/storage": "^6.8.0",
     "axios": "^1.2.1",
     "durable-functions": "^2.1.0",
+    "natural": "^5.2.4",
     "node-summarizer": "^1.0.7",
     "parse-apache-directory-index": "^3.0.2"
   },
   "devDependencies": {
-    "@azure/functions": "^3.0.0",
-    "@types/node": "^16.18.6",
+    "@azure/functions": "^3.5.0",
+    "@types/node": "^16.18.8",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "tsc-hooks": "^1.1.1",
     "typescript": "^4.0.0"
   }
 }

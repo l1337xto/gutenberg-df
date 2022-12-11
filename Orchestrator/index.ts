@@ -14,13 +14,14 @@ const orchestrator = df.orchestrator(function* (context) {
     }
     let processedBook = yield context.df.callActivity(CONSTANTS.ProcessBook, context.bindingData);
     context.bindingData.bookContent=processedBook;
-    let summary:any=null;
+    let uploadToCloud:any=null;
     if(processedBook!==undefined){
-        const SummaryByFrequency = context.df.callActivity(CONSTANTS.SummaryByFrequency, context.bindingData)
-        const SummaryByRank = context.df.callActivity(CONSTANTS.SummaryByRank, context.bindingData);
-        summary = yield context.df.Task.all([SummaryByFrequency, SummaryByRank])
+        let _a = context.df.callActivity(CONSTANTS.SummaryByFrequency, context.bindingData);
+        let _b = context.df.callActivity(CONSTANTS.SentimentAnalysis, context.bindingData);
+        context.bindingData.bookSummary = yield context.df.Task.all([_a, _b]);
+        uploadToCloud = yield context.df.callActivity(CONSTANTS.SaveToDrive, context.bindingData);
     }
-    return summary;
+    return uploadToCloud;
 });
 
 export default orchestrator;

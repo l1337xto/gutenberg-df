@@ -12,5 +12,9 @@ export const CONSTANTS = {
     GetBookContent:"GetBookContent",
     ProcessBook:"ProcessBook",
     SummaryByFrequency:"SummaryByFrequency",
-    SummaryByRank:"SummaryByRank"
+    SummaryByRank:"SummaryByRank",
+    gutenbergAnalysisUga:"gutenberg-analysis-uga",
+    SaveToDrive:"SaveToDrive",
+    SaveCloudKey:'SaveCloudKey',
+    SentimentAnalysis:'SentimentAnalysis',
 }
